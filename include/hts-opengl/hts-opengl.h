@@ -12,6 +12,7 @@
 #define GLX_VERSION_1_4
 
 #ifdef __APPLE__
+#	include <OpenGL/OpenGL.h>
 #	include <OpenGL/gl.h>		// Header File For The OpenGL32 Library
 #	include <OpenGL/glu.h>		// Header File For The GLu32 Library
 #	include <OpenGL/glext.h>		// Header File For The OpenGL32 Library
