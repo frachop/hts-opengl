@@ -14,13 +14,11 @@
 #ifdef __APPLE__
 #	include <OpenGL/OpenGL.h>
 #	include <OpenGL/gl.h>		// Header File For The OpenGL32 Library
-#	include <OpenGL/glu.h>		// Header File For The GLu32 Library
-#	include <OpenGL/glext.h>		// Header File For The OpenGL32 Library
-#	include <GLUT/glut.h>
+#	ifndef NDEBUG
+#		include <OpenGL/glu.h>		// for checkGlError
+#	endif
 #else
 #	include <GL/gl.h>
-#	include <GL/glext.h>
-#	include <GL/glut.h>
 #endif
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
