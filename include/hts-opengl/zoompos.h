@@ -7,6 +7,7 @@ namespace HTS_GL_NAMESPACE {
 		CZoomPos();
 		CZoomPos(const CZoomPos & src);
 		CZoomPos& operator=(const CZoomPos & src);
+		bool operator==(const CZoomPos & src) const;
 
 	public:
 		CSizei  getImgSize() const { return m_imgSize; }
@@ -48,7 +49,7 @@ namespace HTS_GL_NAMESPACE {
 		CSizef getTranslation0() const { return CSizef( -0.5f * float(m_imgSize.cx) + m_center.x,  -0.5f * float(m_imgSize.cy) + m_center.y); }
 		CSizef getScale1() const { return CSizef( m_zoom, m_zoom); }
 		CSizef getTranslation2() const { return CSizef( 0.5f * float(m_canevaSize.cx),  0.5f * float(m_canevaSize.cy)); }
-		void setupGL(GLenum matrixMode = GL_MODELVIEW, bool bPushMatrix = true );
+		void setupGL(GLenum matrixMode = GL_MODELVIEW, bool bPushMatrix = true ) const;
 
 	protected:
 		CSizei m_imgSize;

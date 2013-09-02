@@ -42,6 +42,18 @@ namespace HTS_GL_NAMESPACE {
 			m_matImgToCaneva= src.m_matImgToCaneva;
 		}
 		return (*this);
+	}
+
+	bool CZoomPos::operator==(const CZoomPos & src) const
+	{
+		return (
+			(m_imgSize    == src.m_imgSize   ) &&
+			(m_canevaSize == src.m_canevaSize) &&
+			(m_center     == src.m_center    ) &&
+			(m_zoom       == src.m_zoom      ) &&
+			(m_zoomMin    == src.m_zoomMin   ) &&
+			(m_zoomMax    == src.m_zoomMax   ) &&
+			(m_zoomStep   == src.m_zoomStep  ) );
 
 	}
 
@@ -161,7 +173,7 @@ namespace HTS_GL_NAMESPACE {
 		m_matImgToCaneva.inverse(m_matCanevaToImg);
 	}
 
-	void CZoomPos::setupGL(GLenum matrixMode, bool bPushMatrix )
+	void CZoomPos::setupGL(GLenum matrixMode, bool bPushMatrix ) const
 	{
 		const CSizef t2 ( getTranslation2() );
 		const CSizef s1 ( getScale1      () );
